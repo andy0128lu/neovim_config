@@ -1,16 +1,19 @@
 return {
-  {
-    "hrsh7th/cmp-nvim-lsp", -- Load completion recommendation from LSP you installed to the completion window
-  },
-  {
-		"L3MON4D3/LuaSnip", -- Load completion data from the dependency list to the completion window
-		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
-		},
+	{
+		"L3MON4D3/LuaSnip",
+		dependencies = { "rafamadriz/friendly-snippets" },
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp", -- Open completion window when typing
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp", -- Load completion recommendation from LSP you installed to the completion window
+			--"L3MON4D3/LuaSnip", -- Load completion data from the dependency list to the completion window
+			"saadparwaiz1/cmp_luasnip",
+			--"rafamadriz/friendly-snippets",
+		},
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
@@ -34,7 +37,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-					-- { name = "nvim_lsp" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
 					{ name = "buffer" },
