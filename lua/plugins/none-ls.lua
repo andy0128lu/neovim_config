@@ -9,8 +9,8 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				-- rubocop threw errors and didn't work. It may need to wait for patches in new versions
-				null_ls.builtins.diagnostics.rubocop,
-				null_ls.builtins.formatting.rubocop,
+				-- null_ls.builtins.diagnostics.rubocop,
+				-- null_ls.builtins.formatting.rubocop,
 				null_ls.builtins.diagnostics.eslint_d,
 				null_ls.builtins.formatting.eslint_d,
 				null_ls.builtins.formatting.prettier,
