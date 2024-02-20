@@ -14,9 +14,20 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
 			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
+				pickers = {
+					find_files = {
+						find_command = { "rg", "--files", "--glob", "!**/.git/*", "--hidden" },
+					},
+					grep_string = {
+						additional_args = { "--hidden" },
+					},
+					live_grep = {
+						additional_args = { "--hidden" },
+					},
+					extensions = {
+						["ui-select"] = {
+							require("telescope.themes").get_dropdown({}),
+						},
 					},
 				},
 			})
