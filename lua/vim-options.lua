@@ -7,3 +7,6 @@ vim.g.mapleader = " "
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+vim.keymap.set("n", ";", ":", { desc = "Swap ; and :" })
+vim.keymap.set("n", ":", ";", { desc = "Swap ; and :" })
