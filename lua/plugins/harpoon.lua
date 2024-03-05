@@ -43,7 +43,6 @@ return {
 		vim.keymap.set("n", "<leader>hf", function()
 			toggle_telescope(harpoon:list())
 		end, { desc = "Search harpoon file in telescope window" })
-
 		vim.keymap.set("n", "<leader>ha", function()
 			harpoon:list():append()
 		end, {})
