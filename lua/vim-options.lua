@@ -13,4 +13,7 @@ vim.keymap.set("n", ";", ":", { desc = "Swap ; and :" })
 vim.keymap.set("n", ":", ";", { desc = "Swap ; and :" })
 vim.keymap.set("n", "<leader>hn", ":nohlsearch<CR>", { desc = "Hide highlight in search result" })
 
+vim.keymap.set("n", "<leader>nt","gt", { desc = "Next tab" })
+vim.keymap.set("n", "<leader>pt","gT", { desc = "Previous tab" })
+
 vim.keymap.set("n", "<C-t>", ":terminal<CR>", { desc = "Open terminal mode" })
