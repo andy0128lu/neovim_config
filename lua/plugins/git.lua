@@ -13,6 +13,7 @@ return {
     config = function()
       vim.keymap.set("n", "<leader>gs", ":tab Git<CR>", {})
       vim.keymap.set("n", "<leader>gh", ":Git blame<CR>", {})
+      vim.keymap.set("n", "<leader><leader>gpl", ":Git pull<CR>", {})
       vim.keymap.set("n", "<leader><leader>gps", ":Git push<CR>", {})
     end,
   },
