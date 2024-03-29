@@ -38,7 +38,7 @@ return {
     end,
   },
   config = function(_, opts)
-    vim.o.foldcolumn = "1"    -- '0' is not bad
+    vim.o.foldcolumn = "0"    -- '0' is not bad
     vim.o.foldlevel = 99      -- Minimum level of a fold that will be closed by default
     vim.o.foldlevelstart = 99 -- any nested will be closed by default
     vim.opt.foldmethod = "expr" -- Using treesitter for folding
