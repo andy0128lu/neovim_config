@@ -68,7 +68,8 @@ return {
       end)
 
       require("mason-lspconfig").setup({
-        ensure_installed = {},
+        ensure_installed = { 'eslint' },
+        automatic_installation = true,
         handlers = {
           lsp_zero.default_setup,
         },

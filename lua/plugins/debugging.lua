@@ -2,6 +2,7 @@ return {
   "mfussenegger/nvim-dap",  -- Debugger Adapter: The adapter to bridge the communication between every debugger and neovim
   dependencies = {
     "rcarriga/nvim-dap-ui", -- UI for dap
+    "nvim-neotest/nvim-nio",
     "leoluz/nvim-dap-go",
     "mxsdev/nvim-dap-vscode-js",
   },
