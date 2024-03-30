@@ -10,6 +10,12 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.conceallevel = 2 -- for UI features of obsidian.nvim
 
+-- settings for plugin: bufferline.
+-- When `termguicolors` is enabled, this plugin is designed to work automatically,
+-- deriving colours from the user's theme, you can change highlight groups by
+vim.opt.termguicolors = true
+
+
 vim.keymap.set("n", ";", ":", { desc = "Swap ; and :" })
 vim.keymap.set("n", ":", ";", { desc = "Swap ; and :" })
 vim.keymap.set("n", "<leader>hn", ":nohlsearch<CR>", { desc = "Hide highlight in search result" })

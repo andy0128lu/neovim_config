@@ -12,11 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- settings for plugin: bufferline.
--- When `termguicolors` is enabled, this plugin is designed to work automatically,
--- deriving colours from the user's theme, you can change highlight groups by
-vim.opt.termguicolors = true
-
 -- Load modules
 require("vim-options")
 require("lazy").setup({
