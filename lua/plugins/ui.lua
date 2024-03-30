@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim", -- aesthetic tab name
-  enabled = false,
+  enabled = true,
   version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
