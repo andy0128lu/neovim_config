@@ -8,6 +8,7 @@ vim.g.mapleader = " "
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 vim.opt.conceallevel = 2 -- for UI features of obsidian.nvim
 
 -- settings for plugin: bufferline.
