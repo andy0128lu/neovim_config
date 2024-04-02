@@ -20,3 +20,5 @@ require("lazy").setup({
     { import = "plugins" },
   },
 })
+
+require("statusline")
