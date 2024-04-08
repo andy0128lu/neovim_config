@@ -5,9 +5,13 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local builtin = require("telescope.builtin")
+      local function grep_cword()
+        return builtin.grep_string({ search = vim.fn.expand("<cword>") })
+      end
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files based on keyword" })
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Search in the current entire directory" })
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Search in the current buffer" })
+      vim.keymap.set("n", "<leader>fc", grep_cword, { desc = "Search in the current buffer" })
       vim.keymap.set(
         "n",
         "<leader>fs",
