@@ -13,12 +13,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load modules
-require("vim-options")
+require("customise/vim-options")
 require("lazy").setup({
   spec = {
     -- import from the /plugins directory
     { import = "plugins" },
   },
 })
-
-require("statusline")
+-- TODO: Make it load files in a folder automatically
+require("customise/diagnostic")
