@@ -75,6 +75,7 @@ return {
 
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files based on keyword" })
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Search in the current buffer" })
+      vim.keymap.set("n", "<leader>fl", builtin.resume, { desc = "Resume the last picker" })
       vim.keymap.set("n", "<leader>fg", live_grep_args, { desc = "Search in the current entire directory" })
       vim.keymap.set("n", "<leader>fc", grep_cword, { desc = "Search in the current buffer" })
       vim.keymap.set(
