@@ -1,5 +1,5 @@
 return {
-  "mfussenegger/nvim-dap",  -- Debugger Adapter: The adapter to bridge the communication between every debugger and neovim
+  "mfussenegger/nvim-dap", -- Debugger Adapter: The adapter to bridge the communication between every debugger and neovim
   dependencies = {
     "rcarriga/nvim-dap-ui", -- UI for dap
     "nvim-neotest/nvim-nio",
@@ -24,8 +24,8 @@ return {
         "node-terminal",
         "pwa-extensionHost",
         "node",
-        "chrome"
-      } -- which adapters to register in nvim-dap
+        "chrome",
+      }, -- which adapters to register in nvim-dap
       -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
       -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
       -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
@@ -48,18 +48,18 @@ return {
           type = "pwa-node",
           request = "attach",
           name = "Attach",
-          processId = require 'dap.utils'.pick_process,
+          processId = require("dap.utils").pick_process,
           cwd = "${workspaceFolder}",
         },
         -- For web apps
         {
           type = "pwa-chrome",
           request = "launch",
-          name = "Start Chrome with \"localhost\"",
+          name = 'Start Chrome with "localhost"',
           url = "http://localhost:3000/#/au/",
           webRoot = "${workspaceFolder}",
-          userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
-        }
+          userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
+        },
       }
     end
 
@@ -82,7 +82,7 @@ return {
     vim.keymap.set("n", "<Leader>do", dap.step_out, {})
     vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
     vim.keymap.set("n", "<Leader>dB", function()
-      require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+      require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
     end, { desc = "conditional breakpoint" })
   end,
 }
