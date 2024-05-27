@@ -20,6 +20,7 @@ return {
             i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              ["<C-s>"] = lga_actions.quote_prompt({ postfix = " --smart-case " }),
             },
             n = {
               -- TODO: live_grep on the first live_grep result but doesn't seem working?
