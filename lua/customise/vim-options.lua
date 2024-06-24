@@ -28,3 +28,16 @@ vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate to left
 vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", { desc = "navigate to right pane" })
 vim.keymap.set("n", "<C-h>", ":TmuxNavigateDown<CR>", { desc = "navigate to down pane" })
 vim.keymap.set("n", "<C-h>", ":TmuxNavigateUp<CR>", { desc = "navigate to up pane" })
+
+-- TODO: refactor to an file
+-- Quickfix list: delete items
+local del_qf_item = function()
+  local items = vim.fn.getqflist()
+  local line = vim.fn.line('.')
+  table.remove(items, line)
+  vim.fn.setqflist(items, "r")
+  vim.api.nvim_win_set_cursor(0, { line, 0 })
+end
+
+vim.keymap.set("n", "dd", del_qf_item, { silent = true, buffer = true, desc = "Remove entry from QF" })
+vim.keymap.set("v", "D", del_qf_item, { silent = true, buffer = true, desc = "Remove entry from QF" })
