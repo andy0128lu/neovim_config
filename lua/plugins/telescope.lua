@@ -13,6 +13,21 @@ return {
     },
     opts = function(_, opts)
       local lga_actions = require("telescope-live-grep-args.actions")
+
+      local focus_preview = function(prompt_bufnr)
+        local action_state = require("telescope.actions.state")
+        local picker = action_state.get_current_picker(prompt_bufnr)
+        local prompt_win = picker.prompt_win
+        local previewer = picker.previewer
+        local winid = previewer.state.winid
+        local bufnr = previewer.state.bufnr
+        vim.keymap.set("n", "<Tab>", function()
+          vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", prompt_win))
+        end, { buffer = bufnr })
+        vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", winid))
+        -- api.nvim_set_current_win(winid)
+      end
+
       opts.extensions = {
         live_grep_args = {
           auto_quoting = true,
@@ -21,8 +36,10 @@ return {
               ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
               ["<C-s>"] = lga_actions.quote_prompt({ postfix = " --smart-case " }),
+              ["<Tab>"] = focus_preview,
             },
             n = {
+              ["<Tab>"] = focus_preview,
               -- TODO: live_grep on the first live_grep result but doesn't seem working?
               ["<C-r>"] = {
                 function(p_bufnr)
