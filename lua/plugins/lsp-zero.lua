@@ -35,12 +35,24 @@ return {
       cmp.setup({
         formatting = lsp_zero.cmp_format({ details = true }),
         mapping = cmp.mapping.preset.insert({
-          ["<C-Space>"] = cmp.mapping.complete(),
+          -- confirm completion
+          -- ["<C-Space>"] = cmp.mapping.complete(),
+          -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
+          -- select item in the list
+          ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
+          ["<C-j>"] = cmp.mapping.select_next_item({ behavior = "select" }),
+          -- scroll up and down the documentation window
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
           ["<C-f>"] = cmp_action.luasnip_jump_forward(),
           ["<C-b>"] = cmp_action.luasnip_jump_backward(),
         }),
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
       })
     end,
   },
@@ -54,6 +66,10 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason-lspconfig.nvim" },
       { "Hoffs/omnisharp-extended-lsp.nvim" },
+    },
+    keys = {
+      {"g[", vim.diagnostic.goto_prev, desc = "Go to previouw diagnostic error/warning/hint" },
+      {"g]", vim.diagnostic.goto_next, desc = "Go to next diagnostic error/warning/hint" },
     },
     config = function()
       -- This is where all the LSP shenanigans will live
@@ -83,7 +99,12 @@ return {
         ensure_installed = { "eslint" },
         automatic_installation = true,
         handlers = {
-          lsp_zero.default_setup,
+          -- this first function is the "default handler"
+          -- it applies to every language server without a "custom handler"
+          function(server_name)
+            require("lspconfig")[server_name].setup({})
+          end,
+          -- lsp_zero.default_setup,
         },
       })
 
