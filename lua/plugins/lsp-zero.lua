@@ -67,10 +67,6 @@ return {
       { "williamboman/mason-lspconfig.nvim" },
       { "Hoffs/omnisharp-extended-lsp.nvim" },
     },
-    keys = {
-      {"g[", vim.diagnostic.goto_prev, desc = "Go to previouw diagnostic error/warning/hint" },
-      {"g]", vim.diagnostic.goto_next, desc = "Go to next diagnostic error/warning/hint" },
-    },
     config = function()
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require("lsp-zero")

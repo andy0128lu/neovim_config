@@ -16,12 +16,18 @@ vim.opt.conceallevel = 2 -- for UI features of obsidian.nvim
 -- deriving colours from the user's theme, you can change highlight groups by
 vim.opt.termguicolors = true
 
--- keymaps
+-- general keymaps
 vim.keymap.set("n", ";", ":", { desc = "Swap ; and :" })
 vim.keymap.set("n", ":", ";", { desc = "Swap ; and :" })
 vim.keymap.set("n", "<leader>hn", ":nohlsearch<CR>", { desc = "Hide highlight in search result" })
 
 vim.keymap.set("n", "<C-t>", ":terminal<CR>", { desc = "Open terminal mode" })
+
+-- keymaps for LSP
+vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "formatting" })
+vim.keymap.set("n", "<leader>gl", ":EslintFixAll<CR>", { desc = "Eslint fix all" })
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Go to next diagnostic line"})
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic line"})
 
 -- Overwrite keymap for navigation between panes in Tmux
 vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate to left pane" })
