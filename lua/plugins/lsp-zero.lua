@@ -31,7 +31,7 @@ return {
       -- And you can configure cmp even more, if you want to.
       local cmp = require("cmp")
       local cmp_action = lsp_zero.cmp_action()
-
+      
       cmp.setup({
         formatting = lsp_zero.cmp_format({ details = true }),
         mapping = cmp.mapping.preset.insert({
@@ -39,9 +39,21 @@ return {
           -- ["<C-Space>"] = cmp.mapping.complete(),
           -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
-          -- select item in the list
-          ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
-          ["<C-j>"] = cmp.mapping.select_next_item({ behavior = "select" }),
+          -- select item in the list, or start completion prompt if not visible
+          ['<C-p>'] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = 'select' })
+            else
+              cmp.complete()
+            end
+          end),
+          ['<C-n>'] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = 'select' })
+            else
+              cmp.complete()
+            end
+          end),
           -- scroll up and down the documentation window
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
