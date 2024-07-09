@@ -39,14 +39,14 @@ return {
           -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
           -- select item in the list, or start completion prompt if not visible
-          ['<C-p>'] = cmp.mapping(function()
+          ['<C-k>'] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_prev_item({ behavior = 'select' })
             else
               cmp.complete()
             end
           end),
-          ['<C-n>'] = cmp.mapping(function()
+          ['<C-j>'] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_next_item({ behavior = 'select' })
             else
@@ -102,6 +102,13 @@ return {
         lsp_zero.default_keymaps({ buffer = bufnr })
       end)
 
+      -- Set sign icons for diagnostics
+      lsp_zero.set_sign_icons({
+        error = '', --'✘',
+        warn = '', --'▲',
+        hint = '', --'⚑',
+        info = '', --'»'
+      })
       require("mason-lspconfig").setup({
         ensure_installed = { "eslint" },
         automatic_installation = true,
