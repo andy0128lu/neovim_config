@@ -1,3 +1,5 @@
+-- Source: https://github.com/max397574/better-escape.nvim
+
 local M = {}
 local uv = vim.uv
 
