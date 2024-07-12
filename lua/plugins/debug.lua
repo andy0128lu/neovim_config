@@ -1,5 +1,5 @@
 return {
-  "mfussenegger/nvim-dap", -- Debugger Adapter: The adapter to bridge the communication between every debugger and neovim
+  "mfussenegger/nvim-dap",  -- Debugger Adapter: The adapter to bridge the communication between every debugger and neovim
   dependencies = {
     "rcarriga/nvim-dap-ui", -- UI for dap
     "nvim-neotest/nvim-nio",
@@ -84,5 +84,6 @@ return {
     vim.keymap.set("n", "<Leader>dB", function()
       require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
     end, { desc = "conditional breakpoint" })
+    vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "Terminate" })
   end,
 }
