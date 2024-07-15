@@ -28,6 +28,7 @@ vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "formatting" })
 vim.keymap.set("n", "<leader>gl", ":EslintFixAll<CR>", { desc = "Eslint fix all" })
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Go to next diagnostic line"})
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic line"})
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action list"})
 
 -- Overwrite keymap for navigation between panes in Tmux
 vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate to left pane" })
