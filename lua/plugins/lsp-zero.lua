@@ -123,6 +123,9 @@ return {
       })
 
       -- Setup for Omnisharp for C#
+      -- Note that there was one issue when running Go to Definition which has happened after omnisharp v1.39.8
+      -- so needed to run ":MasonInstall omnisharp@v1.39.8
+      -- source: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574#issuecomment-1976435907
       require("lspconfig").omnisharp.setup({
         cmd = { "dotnet", "/Users/Andy.Lu/.config/nvim/lsp-servers/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
         handlers = {
