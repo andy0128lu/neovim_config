@@ -128,12 +128,6 @@ return {
       -- source: https://github.com/OmniSharp/omnisharp-roslyn/issues/2574#issuecomment-1976435907
       require("lspconfig").omnisharp.setup({
         cmd = { "dotnet", "/Users/Andy.Lu/.config/nvim/lsp-servers/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
-        handlers = {
-          ["textDocument/definition"] = require("omnisharp_extended").handler,
-          ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
-          ["textDocument/references"] = require("omnisharp_extended").references_handler,
-          ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
-        },
         settings = {
           FormattingOptions = {
             -- Enables support for reading code style, naming convention and analyzer
@@ -172,6 +166,26 @@ return {
             IncludePrereleases = true,
           },
         },
+      })
+
+      vim.keymap.set("n", "gd", "<cmd>lua require('omnisharp_extended').lsp_definition()<cr>", {
+        desc =
+        "replaces vim.lsp.buf.definition()"
+      })
+
+      vim.keymap.set("n", "<leader>D", "<cmd>lua require('omnisharp_extended').lsp_type_definition()<cr>", {
+        desc =
+        " replaces vim.lsp.buf.type_definition()"
+      })
+
+      vim.keymap.set("n", "gr", "<cmd>lua require('omnisharp_extended').lsp_references()<cr>", {
+        desc =
+        "replaces vim.lsp.buf.references()"
+      })
+
+      vim.keymap.set("n", "gi", "<cmd>lua require('omnisharp_extended').lsp_implementation()<cr>", {
+        desc =
+        "replaces vim.lsp.buf.implementation()"
       })
     end,
   },
