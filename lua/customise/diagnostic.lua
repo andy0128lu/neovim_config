@@ -16,7 +16,7 @@ local function get_formatted_diagnostic(diagnostic)
   local hints = ""
   local info = ""
   if count["errors"] ~= 0 then
-   --errors = " " .. vim.fn.sign_getdefined("DiagnosticsSignError") .. " " .. count["errors"]
+    --errors = " " .. vim.fn.sign_getdefined("DiagnosticsSignError") .. " " .. count["errors"]
     errors = " " .. " " .. count["errors"]
   end
   if count["warnings"] ~= 0 then
@@ -39,10 +39,11 @@ vim.diagnostic.config({
   virtual_text = {
     --prefix = "",
     scope = "line",
-    severity = vim.diagnostic.severity.INFO -- show diagnostic which severity is higher than the value
+    severity = { min = vim.diagnostic.severity.WARN },
     --format = get_formatted_diagnostic,
   },
-  signs = true,
+  --signs = {severity = {min = vim.diagnostic.severity.WARN}},
+  underline = {severity = {min = vim.diagnostic.severity.WARN}},
   float = {
     border = "single",
     severity_sort = true,
