@@ -39,6 +39,7 @@ vim.diagnostic.config({
   virtual_text = {
     --prefix = "",
     scope = "line",
+    severity = vim.diagnostic.severity.INFO -- show diagnostic which severity is higher than the value
     --format = get_formatted_diagnostic,
   },
   signs = true,
