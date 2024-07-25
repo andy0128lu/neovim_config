@@ -20,6 +20,7 @@ vim.opt.termguicolors = true
 vim.keymap.set("n", ";", ":", { desc = "Swap ; and :" })
 vim.keymap.set("n", ":", ";", { desc = "Swap ; and :" })
 vim.keymap.set("n", "<leader>hn", ":nohlsearch<CR>", { desc = "Hide highlight in search result" })
+vim.keymap.set("n", "<leader>ct", ":tabclose<CR>", { desc = "Close all windows in the current tab" })
 
 vim.keymap.set("n", "<C-t>", ":terminal<CR>", { desc = "Open terminal mode" })
 
