@@ -83,17 +83,6 @@ return {
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_lspconfig()
 
-      -- -- Setting up for omnisharp extension
-      -- lsp.configure("omnisharp", {
-      --   handlers = {
-      --     ["textDocument/definition"] = require("omnisharp_extended").handler,
-      --     ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
-      --     ["textDocument/references"] = require("omnisharp_extended").references_handler,
-      --     ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
-      --   },
-      -- })
-      -- require'lspconfig'.omnisharp.setup(config)
-
       --- if you want to know more about lsp-zero and mason.nvim
       --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
       lsp_zero.on_attach(function(client, bufnr)
@@ -109,6 +98,14 @@ return {
         hint = '', --'⚑',
         info = '', --'»'
       })
+
+      -- Tell the server the capability of foldingRange, (for ufo plugin)
+      -- Neovim hasn't added foldingRange to default capabilities, users must add it manually
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.foldingRange = {
+          dynamicRegistration = false,
+          lineFoldingOnly = true
+      }
       require("mason-lspconfig").setup({
         ensure_installed = { "eslint" },
         automatic_installation = true,
@@ -116,7 +113,9 @@ return {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
           function(server_name)
-            require("lspconfig")[server_name].setup({})
+            require("lspconfig")[server_name].setup({
+                capabilities = capabilities
+            })
           end,
           -- lsp_zero.default_setup,
         },
