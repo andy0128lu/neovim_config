@@ -126,6 +126,15 @@ return {
         },
       })
 
+      -- Setup for Podfile
+      -- Treat "Podfile" and "*.podspec" as Ruby file
+      local auto_command_on = vim.api.nvim_create_autocmd
+
+      auto_command_on({ "BufRead", "BufNewFile" }, {
+        pattern = { "*.podspec", "Podfile" },
+        command = "set filetype=ruby",
+      })
+
       -- Setup for Omnisharp for C#
       -- Note that there was one issue when running Go to Definition which has happened after omnisharp v1.39.8
       -- so needed to run ":MasonInstall omnisharp@v1.39.8
