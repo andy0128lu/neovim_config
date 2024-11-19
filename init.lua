@@ -21,5 +21,6 @@ require("lazy").setup({
   },
 })
 -- TODO: Make it load files in a folder automatically
+require("customise/keymaps")
 require("customise/diagnostic")
 require("customise/better-escape")
