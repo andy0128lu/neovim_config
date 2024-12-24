@@ -13,15 +13,15 @@ vim.keymap.set("n", "<C-t>", ":terminal<CR>", { desc = "Open terminal mode" })
 -- keymaps for LSP
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "formatting" })
 vim.keymap.set("n", "<leader>gl", ":EslintFixAll<CR>", { desc = "Eslint fix all" })
-vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Go to next diagnostic line"})
-vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic line"})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action list"})
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Go to next diagnostic line" })
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic line" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action list" })
 
 -- Overwrite keymap for navigation between panes in Tmux
 vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate to left pane" })
 vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", { desc = "navigate to right pane" })
-vim.keymap.set("n", "<C-h>", ":TmuxNavigateDown<CR>", { desc = "navigate to down pane" })
-vim.keymap.set("n", "<C-h>", ":TmuxNavigateUp<CR>", { desc = "navigate to up pane" })
+vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>", { desc = "navigate to down pane" })
+vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", { desc = "navigate to up pane" })
 
 -- TODO: refactor to an file
 -- Quickfix list: delete items
