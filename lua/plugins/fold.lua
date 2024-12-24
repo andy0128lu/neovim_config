@@ -3,7 +3,7 @@ return {
   dependencies = { "kevinhwang91/promise-async" },
   opts = {
     close_fold_kinds_for_ft = {
-      default = {'imports', 'comment'}
+      -- default = {'imports', 'comment'} -- TODO: Tweak it. It's disabled for now as sometimes collapse more than I wanted
     },
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       -- global handler
