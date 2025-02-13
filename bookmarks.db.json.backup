@@ -1,0 +1,535 @@
+{
+  "bookmark_lists": [
+    {
+      "bookmarks": [],
+      "id": "2024100313592619787621",
+      "is_active": false,
+      "name": "Default"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "      ? AuthenticationType.MyobId",
+          "created_at": 1728440698,
+          "githash": "6e03560b6",
+          "id": 1728440698,
+          "location": {
+            "col": 18,
+            "line": 27,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/index.js",
+            "project_name": "sme-web",
+            "relative_path": "src/index.js"
+          },
+          "name": "auth initialisation",
+          "visited_at": 1728440698
+        },
+        {
+          "content": "    case AuthenticationType.MyobId:",
+          "created_at": 1728440732,
+          "githash": "6e03560b6",
+          "id": 1728440732,
+          "location": {
+            "col": 9,
+            "line": 19,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/Auth.js",
+            "project_name": "sme-web",
+            "relative_path": "src/Auth.js"
+          },
+          "name": "myobid authenticator initialisation",
+          "visited_at": 1728440732
+        },
+        {
+          "content": "const setTimer = async (",
+          "created_at": 1728521726,
+          "githash": "8513e9e26",
+          "id": 1728521726,
+          "location": {
+            "col": 0,
+            "line": 44,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/inactivityTimer.js",
+            "project_name": "sme-web",
+            "relative_path": "src/inactivityTimer.js"
+          },
+          "name": "set inactivity timer",
+          "visited_at": 1728529822
+        },
+        {
+          "content": "describe('inactivityTimer', () => {",
+          "created_at": 1728521852,
+          "githash": "8513e9e26",
+          "id": 1728521852,
+          "location": {
+            "col": 0,
+            "line": 21,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/__tests__/sessionInactivity.test.js",
+            "project_name": "sme-web",
+            "relative_path": "src/__tests__/sessionInactivity.test.js"
+          },
+          "name": "test inactivity timer",
+          "visited_at": 1728604200
+        },
+        {
+          "content": "    inactivityTimerId = setTimeout(() => {",
+          "created_at": 1728016232,
+          "githash": "d78cf30c6",
+          "id": 1728016232,
+          "location": {
+            "col": 4,
+            "line": 218,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/Auth.myobid.js",
+            "project_name": "sme-web",
+            "relative_path": "src/Auth.myobid.js"
+          },
+          "name": "publish session expired for a user",
+          "visited_at": 1728621723
+        },
+        {
+          "content": "const acquireToken = async (isBackgroundActivity = false) => {",
+          "created_at": 1728521670,
+          "githash": "8513e9e26",
+          "id": 1728521670,
+          "location": {
+            "col": 28,
+            "line": 251,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/Auth.myobid.js",
+            "project_name": "sme-web",
+            "relative_path": "src/Auth.myobid.js"
+          },
+          "name": "myob id get token",
+          "visited_at": 1728622006
+        },
+        {
+          "content": "      const token = await acquireToken(isBackgroundActivity);",
+          "created_at": 1728622093,
+          "githash": "d1685ebd4",
+          "id": 1728622093,
+          "location": {
+            "col": 31,
+            "line": 7,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/integration/createAuthHttpIntegration.js",
+            "project_name": "sme-web",
+            "relative_path": "src/integration/createAuthHttpIntegration.js"
+          },
+          "name": "Get token in integration",
+          "visited_at": 1728622093
+        }
+      ],
+      "id": "2024100414205553681965",
+      "is_active": false,
+      "name": "ITS polling"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "export const getDocumentIdsToPoll = createSelector(getEntries, (entries) =>",
+          "created_at": 1729205623,
+          "githash": "cd5f9f169",
+          "id": 1729205623,
+          "location": {
+            "col": 13,
+            "line": 188,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayModal/selectors/InTrayModalSelectors.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayModal/selectors/InTrayModalSelectors.js"
+          },
+          "name": "getDocumentsIds",
+          "visited_at": 1729205684
+        },
+        {
+          "content": "describe('InTrayModal', ()=>{",
+          "created_at": 1729207573,
+          "githash": "cd5f9f169",
+          "id": 1729207573,
+          "location": {
+            "col": 0,
+            "line": 3,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayModal/__tests__/InTrayModalModule.test.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayModal/__tests__/InTrayModalModule.test.js"
+          },
+          "name": "InTrayModal test",
+          "visited_at": 1729209453
+        },
+        {
+          "content": "  startPolling = () => {",
+          "created_at": 1729219790,
+          "githash": "343d9f5dd",
+          "id": 1729219790,
+          "location": {
+            "col": 2,
+            "line": 64,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayModal/InTrayModalModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayModal/InTrayModalModule.js"
+          },
+          "name": "startPolling",
+          "visited_at": 1729219790
+        },
+        {
+          "content": "  createInTrayDocuments = (entries) => {",
+          "created_at": 1729221273,
+          "githash": "343d9f5dd",
+          "id": 1729221273,
+          "location": {
+            "col": 12,
+            "line": 240,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "upload a doc",
+          "visited_at": 1729221455
+        },
+        {
+          "content": "  startPolling = () => {",
+          "created_at": 1729222915,
+          "githash": "92c3405c1",
+          "id": 1729222915,
+          "location": {
+            "col": 0,
+            "line": 64,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayModal/InTrayModalModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayModal/InTrayModalModule.js"
+          },
+          "name": "startPolling",
+          "visited_at": 1729222915
+        },
+        {
+          "content": "  startPolling = (isBackgroundActivity) => {",
+          "created_at": 1729048509,
+          "githash": "dac99d8cd",
+          "id": 1729048509,
+          "location": {
+            "col": 5,
+            "line": 303,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "startPolling",
+          "visited_at": 1729484416
+        },
+        {
+          "content": "describe('InTrayModule', () => {",
+          "created_at": 1729207410,
+          "githash": "cd5f9f169",
+          "id": 1729207410,
+          "location": {
+            "col": 1,
+            "line": 56,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/__tests__/InTrayModule.test.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/__tests__/InTrayModule.test.js"
+          },
+          "name": "InTrayModule test",
+          "visited_at": 1729484420
+        }
+      ],
+      "id": "2024101809530396150576",
+      "is_active": false,
+      "name": "P2PY-419-PreventBadPolls"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "    <uses-permission android:name=\"android.permission.READ_MEDIA_VISUAL_USER_SELECTED\" />",
+          "created_at": 1729729286,
+          "githash": "f06dc7f",
+          "id": 1729729286,
+          "location": {
+            "col": 0,
+            "line": 11,
+            "path": "/Users/Andy.Lu/Projects/snap/android/app/src/main/AndroidManifest.xml",
+            "project_name": "snap",
+            "relative_path": "android/app/src/main/AndroidManifest.xml"
+          },
+          "name": "Permission declaration",
+          "visited_at": 1729729286
+        },
+        {
+          "content": "  public void openImagePicker(Promise promise) {",
+          "created_at": 1729729324,
+          "githash": "f06dc7f",
+          "id": 1729729324,
+          "location": {
+            "col": 0,
+            "line": 102,
+            "path": "/Users/Andy.Lu/Projects/snap/android/app/src/main/java/com/myob/snap/MainActivity.java",
+            "project_name": "snap",
+            "relative_path": "android/app/src/main/java/com/myob/snap/MainActivity.java"
+          },
+          "name": "openImagePicker",
+          "visited_at": 1729729324
+        },
+        {
+          "content": "  public void onActivityResult(int requestCode, int resultCode, Intent data) {",
+          "created_at": 1729729341,
+          "githash": "f06dc7f",
+          "id": 1729729341,
+          "location": {
+            "col": 0,
+            "line": 71,
+            "path": "/Users/Andy.Lu/Projects/snap/android/app/src/main/java/com/myob/snap/MainActivity.java",
+            "project_name": "snap",
+            "relative_path": "android/app/src/main/java/com/myob/snap/MainActivity.java"
+          },
+          "name": "onActivityResult",
+          "visited_at": 1729729686
+        },
+        {
+          "content": "export const AndroidVersion = {",
+          "created_at": 1729731621,
+          "githash": "f06dc7f",
+          "id": 1729731621,
+          "location": {
+            "col": 0,
+            "line": 115,
+            "path": "/Users/Andy.Lu/Projects/snap/src/Constants.js",
+            "project_name": "snap",
+            "relative_path": "src/Constants.js"
+          },
+          "name": "Android version constant",
+          "visited_at": 1729731621
+        },
+        {
+          "content": "export const toggleCameraRollPreference = saveToCameraRoll => dispatch => {",
+          "created_at": 1729814438,
+          "githash": "f06dc7f",
+          "id": 1729814438,
+          "location": {
+            "col": 10,
+            "line": 739,
+            "path": "/Users/Andy.Lu/Projects/snap/src/actions/index.js",
+            "project_name": "snap",
+            "relative_path": "src/actions/index.js"
+          },
+          "name": "toggleCameraRollPreference",
+          "visited_at": 1729816759
+        },
+        {
+          "content": "export const usePhoto = () => (dispatch, getState) => {",
+          "created_at": 1729830967,
+          "githash": "f06dc7f",
+          "id": 1729830967,
+          "location": {
+            "col": 26,
+            "line": 590,
+            "path": "/Users/Andy.Lu/Projects/snap/src/actions/index.js",
+            "project_name": "snap",
+            "relative_path": "src/actions/index.js"
+          },
+          "name": "usePhoto",
+          "visited_at": 1729832606
+        },
+        {
+          "content": "export const navigateToSettingsScreen = () => (dispatch, getState) => {",
+          "created_at": 1729830458,
+          "githash": "f06dc7f",
+          "id": 1729830458,
+          "location": {
+            "col": 67,
+            "line": 322,
+            "path": "/Users/Andy.Lu/Projects/snap/src/actions/index.js",
+            "project_name": "snap",
+            "relative_path": "src/actions/index.js"
+          },
+          "name": "navigateTosettingsScreen",
+          "visited_at": 1729833223
+        },
+        {
+          "content": "export const photoGallery = async () => {",
+          "created_at": 1729729698,
+          "githash": "f06dc7f",
+          "id": 1729729698,
+          "location": {
+            "col": 5,
+            "line": 51,
+            "path": "/Users/Andy.Lu/Projects/snap/src/Permissions.android.js",
+            "project_name": "snap",
+            "relative_path": "src/Permissions.android.js"
+          },
+          "name": "permission request",
+          "visited_at": 1729834382
+        },
+        {
+          "content": "  startPolling = (isBackgroundActivity) => {",
+          "created_at": 1729048509,
+          "githash": "dac99d8cd",
+          "id": 1729048509,
+          "location": {
+            "col": 5,
+            "line": 319,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "startPolling",
+          "visited_at": 1730181413
+        }
+      ],
+      "id": "2024102210551870592228",
+      "is_active": false,
+      "name": "P2PY-286-capture-app-android-upgrade"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "  loadInTrayList = () => {",
+          "created_at": 1729056363,
+          "githash": "dac99d8cd",
+          "id": 1729056363,
+          "location": {
+            "col": 1,
+            "line": 119,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "loadInTrayList",
+          "visited_at": 1729134001
+        },
+        {
+          "content": "  resetMaxPollTime = () => {",
+          "created_at": 1729057531,
+          "githash": "dac99d8cd",
+          "id": 1729057531,
+          "location": {
+            "col": 4,
+            "line": 233,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "resetMaxPollTime",
+          "visited_at": 1730181443
+        },
+        {
+          "content": "  getPollingInterval = (isBackgroundActivity) => {",
+          "created_at": 1730181471,
+          "githash": "e72da5986",
+          "id": 1730181471,
+          "location": {
+            "col": 2,
+            "line": 293,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "getPollingInterval",
+          "visited_at": 1730181471
+        },
+        {
+          "content": "  startPolling = (isBackgroundActivity) => {",
+          "created_at": 1729048509,
+          "githash": "dac99d8cd",
+          "id": 1729048509,
+          "location": {
+            "col": 5,
+            "line": 322,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "startPolling",
+          "visited_at": 1734576069
+        }
+      ],
+      "id": "2024101613473735423379",
+      "is_active": false,
+      "name": "P2PY-418-PreventPolling"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "  MAX_POLLING_DURATION: 300000,",
+          "created_at": 1734585721,
+          "githash": "f6810546d",
+          "id": 1734585721,
+          "location": {
+            "col": 0,
+            "line": 2,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/common/constants.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/common/constants.js"
+          },
+          "name": "max polling time",
+          "visited_at": 1734585721
+        },
+        {
+          "content": "  startPolling = (isBackgroundActivity) => {",
+          "created_at": 1734585166,
+          "githash": "f6810546d",
+          "id": 1734585166,
+          "location": {
+            "col": 17,
+            "line": 322,
+            "path": "/Users/Andy.Lu/Projects/sme-web/src/modules/inTray/inTrayList/InTrayModule.js",
+            "project_name": "sme-web",
+            "relative_path": "src/modules/inTray/inTrayList/InTrayModule.js"
+          },
+          "name": "startPolling",
+          "visited_at": 1734652185
+        }
+      ],
+      "id": "2024121916122506822824",
+      "is_active": false,
+      "name": "P2PY-475-in-tray-scanning-issue"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "        public IActionResult Post([FromBody]SupplierPaymentCreat",
+          "created_at": 1736389928,
+          "githash": "4e236554b",
+          "id": 1736389928,
+          "location": {
+            "col": 11,
+            "line": 27,
+            "path": "/Users/Andy.Lu/Projects/accountright-protected-api/src/AccountRight.Protected.Api.Web/Features/SupplierPayments/Patch/SupplierPaymentPatchController.cs",
+            "project_name": "accountright-protected-api",
+            "relative_path": "src/AccountRight.Protected.Api.Web/Features/SupplierPayments/Patch/SupplierPaymentPatchController.cs"
+          },
+          "name": "Supplier payment create controller",
+          "visited_at": 1736389928
+        },
+        {
+          "content": "        public IActionResult Post(ReceiveRefundPatch patch)",
+          "created_at": 1736390164,
+          "githash": "4e236554b",
+          "id": 1736390164,
+          "location": {
+            "col": 13,
+            "line": 28,
+            "path": "/Users/Andy.Lu/Projects/accountright-protected-api/src/AccountRight.Protected.Api.Web/Features/PurchaseReturns/ReceiveRefund/Patch/ReceiveRefundPatchController.cs",
+            "project_name": "accountright-protected-api",
+            "relative_path": "src/AccountRight.Protected.Api.Web/Features/PurchaseReturns/ReceiveRefund/Patch/ReceiveRefundPatchController.cs"
+          },
+          "name": "Receive refunds create controller",
+          "visited_at": 1736390164
+        }
+      ],
+      "id": "2025010913170018381607",
+      "is_active": true,
+      "name": "472-account-id"
+    }
+  ],
+  "projects": [
+    {
+      "name": "nvim",
+      "path": "/Users/Andy.Lu/.config/nvim"
+    },
+    {
+      "name": "sme-web",
+      "path": "/Users/Andy.Lu/Projects/sme-web"
+    },
+    {
+      "name": "snap",
+      "path": "/Users/Andy.Lu/Projects/snap"
+    },
+    {
+      "name": "accountright-protected-api",
+      "path": "/Users/Andy.Lu/Projects/accountright-protected-api"
+    }
+  ]
+}
