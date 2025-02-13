@@ -17,12 +17,6 @@ vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic line" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action list" })
 
--- Overwrite keymap for navigation between panes in Tmux
-vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate to left pane" })
-vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", { desc = "navigate to right pane" })
-vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>", { desc = "navigate to down pane" })
-vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", { desc = "navigate to up pane" })
-
 -- TODO: refactor to an file
 -- Quickfix list: delete items
 local del_qf_item = function()

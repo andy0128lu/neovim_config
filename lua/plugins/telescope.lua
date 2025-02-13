@@ -13,6 +13,7 @@ return {
     },
     opts = function(_, opts)
       local lga_actions = require("telescope-live-grep-args.actions")
+      local actions = require("telescope.actions")
 
       local focus_preview = function(prompt_bufnr)
         local action_state = require("telescope.actions.state")
@@ -37,6 +38,9 @@ return {
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
               ["<C-s>"] = lga_actions.quote_prompt({ postfix = " --smart-case " }),
               ["<Tab>"] = focus_preview,
+              -- TODO: doesn't work
+              --["<C-l>"] = actions.results_scrolling_right, -- Scroll to left in results/preview
+              --["<C-h>"] = actions.results_scrolling_left, -- Scroll to right in results/preview
             },
             n = {
               ["<Tab>"] = focus_preview,
@@ -50,9 +54,9 @@ return {
                   local hash = {}
                   for k in pairs(qflist) do
                     local path = vim.fn.bufname(qflist[k]["bufnr"]) -- extract path from quick fix list
-                    if not hash[path] then                -- add to paths table, if not already appeared
+                    if not hash[path] then                          -- add to paths table, if not already appeared
                       paths[#paths + 1] = path
-                      hash[path] = true                   -- remember existing paths
+                      hash[path] = true                             -- remember existing paths
                     end
                   end
                   -- show search scope with message
