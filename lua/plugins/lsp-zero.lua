@@ -38,21 +38,22 @@ return {
           -- ["<C-Space>"] = cmp.mapping.complete(),
           -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
-          -- select item in the list, or start completion prompt if not visible
-          ['<C-k>'] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = 'select' })
-            else
-              cmp.complete()
-            end
-          end),
-          ['<C-j>'] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = 'select' })
-            else
-              cmp.complete()
-            end
-          end),
+          -- TODO: suspecting the duplicate keymaps crash Tmux, so disabled it for now
+          --          -- select item in the list, or start completion prompt if not visible
+          --          ['<C-k>'] = cmp.mapping(function()
+          --            if cmp.visible() then
+          --              cmp.select_prev_item({ behavior = 'select' })
+          --            else
+          --              cmp.complete()
+          --            end
+          --          end),
+          --          ['<C-j>'] = cmp.mapping(function()
+          --            if cmp.visible() then
+          --              cmp.select_next_item({ behavior = 'select' })
+          --            else
+          --              cmp.complete()
+          --            end
+          --          end),
           -- scroll up and down the documentation window
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
@@ -103,8 +104,8 @@ return {
       -- Neovim hasn't added foldingRange to default capabilities, users must add it manually
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.foldingRange = {
-          dynamicRegistration = false,
-          lineFoldingOnly = true
+        dynamicRegistration = false,
+        lineFoldingOnly = true
       }
       require("mason-lspconfig").setup({
         ensure_installed = { "eslint" },
@@ -115,11 +116,11 @@ return {
           function(server_name)
             -- Temp fix to silence the warning for deprecated tsserver
             -- https://github.com/neovim/nvim-lspconfig/pull/3232
-					  if server_name == "tsserver" then
-					  	server_name = "ts_ls"
-					  end
+            if server_name == "tsserver" then
+              server_name = "ts_ls"
+            end
             require("lspconfig")[server_name].setup({
-                capabilities = capabilities
+              capabilities = capabilities
             })
           end,
           -- lsp_zero.default_setup,
