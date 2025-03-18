@@ -25,11 +25,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = args.buf,
       callback = function()
         -- Formatting on Save
-        vim.lsp.buf.format {async = false, id = args.data.client_id }
+        vim.lsp.buf.format { async = false, id = args.data.client_id }
       end,
     })
   end
 })
 
-
-
+-- Config for Ruby
+-- Currently I use treesitter to indent my text. However when using the period
+-- nvim-treesitter will break my indentation of the current line, leading me to
+-- manually fixing each time I use the period/dot character.
+-- This is a band-aid to removing the `.` char as an indent key
+vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
