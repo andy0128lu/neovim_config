@@ -510,8 +510,45 @@
         }
       ],
       "id": "2025010913170018381607",
-      "is_active": true,
+      "is_active": false,
       "name": "472-account-id"
+    },
+    {
+      "bookmarks": [
+        {
+          "content": "        if Rails.application.secrets.should_duplicate_traffic_to_odin_queue",
+          "created_at": 1739241174,
+          "githash": "911cc34",
+          "id": 1739241174,
+          "location": {
+            "col": 0,
+            "line": 18,
+            "path": "/Users/Andy.Lu/Projects/in-tray-service/lib/microservices/ocr_sender_job_handler.rb",
+            "project_name": "in-tray-service",
+            "relative_path": "lib/microservices/ocr_sender_job_handler.rb"
+          },
+          "name": "enqueue",
+          "visited_at": 1739243399
+        },
+        {
+          "content": "      it 'should also send the s3 details to Odin pending queue and save the bill as submitted to ocr' do",
+          "created_at": 1739241152,
+          "githash": "911cc34",
+          "id": 1739241152,
+          "location": {
+            "col": 1,
+            "line": 67,
+            "path": "/Users/Andy.Lu/Projects/in-tray-service/spec/lib/microservices/ocr_sender_job_handler_spec.rb",
+            "project_name": "in-tray-service",
+            "relative_path": "spec/lib/microservices/ocr_sender_job_handler_spec.rb"
+          },
+          "name": "test",
+          "visited_at": 1739244232
+        }
+      ],
+      "id": "2025021113321831721456",
+      "is_active": true,
+      "name": "P2PY-499-duplicate-traffic"
     }
   ],
   "projects": [
@@ -530,6 +567,10 @@
     {
       "name": "accountright-protected-api",
       "path": "/Users/Andy.Lu/Projects/accountright-protected-api"
+    },
+    {
+      "name": "in-tray-service",
+      "path": "/Users/Andy.Lu/Projects/in-tray-service"
     }
   ]
 }
