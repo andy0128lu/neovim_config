@@ -41,10 +41,7 @@ return {
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
   config = function(_, opts)
-    local oil = require("oil")
-    --vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    vim.keymap.set("n", "<leader>-", oil.toggle_float, { desc = "Toggle Oil in floating window" })
-
-    oil.setup(opts)
+    require("oil").setup(opts)
+    vim.keymap.set("n", "<leader>-", ":Oil --float<CR>", { desc = "Open parent directory" })
   end
 }
