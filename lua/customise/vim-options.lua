@@ -25,7 +25,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = args.buf,
       callback = function()
         -- Formatting on Save
-        vim.lsp.buf.format { async = false, id = args.data.client_id }
+        vim.lsp.buf.format {
+          async = false,
+          id = args.data.client_id,
+          -- Never request typescript-language-server for formatting
+          filter = function(client) return client.name ~= "ts_ls" end
+        }
       end,
     })
   end
