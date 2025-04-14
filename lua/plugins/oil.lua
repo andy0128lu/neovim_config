@@ -5,6 +5,8 @@ return {
   opts = {
     -- Set to true to watch the filesystem for changes and reload oil
     watch_for_changes = false,
+    -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
+    skip_confirm_for_simple_edits = true,
     -- Id is automatically added at the beginning, and name at the end
     -- See :help oil-columns
     columns = {
