@@ -38,22 +38,21 @@ return {
           -- ["<C-Space>"] = cmp.mapping.complete(),
           -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
-          -- TODO: suspecting the duplicate keymaps crash Tmux, so disabled it for now
-          --          -- select item in the list, or start completion prompt if not visible
-          --          ['<C-k>'] = cmp.mapping(function()
-          --            if cmp.visible() then
-          --              cmp.select_prev_item({ behavior = 'select' })
-          --            else
-          --              cmp.complete()
-          --            end
-          --          end),
-          --          ['<C-j>'] = cmp.mapping(function()
-          --            if cmp.visible() then
-          --              cmp.select_next_item({ behavior = 'select' })
-          --            else
-          --              cmp.complete()
-          --            end
-          --          end),
+          -- select item in the list, or start completion prompt if not visible
+          ['<C-k>'] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = 'select' })
+            else
+              cmp.complete()
+            end
+          end),
+          ['<C-j>'] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = 'select' })
+            else
+              cmp.complete()
+            end
+          end),
           -- scroll up and down the documentation window
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
