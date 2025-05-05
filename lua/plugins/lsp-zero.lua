@@ -33,20 +33,26 @@ return {
       local cmp_action = lsp_zero.cmp_action()
       cmp.setup({
         formatting = lsp_zero.cmp_format({ details = true }),
+        sources = {
+          { name = "copilot",  group_index = 2 },
+          { name = "nvim_lsp", group_index = 2 },
+          { name = "path",     group_index = 2 },
+          { name = "luasnip",  group_index = 2 },
+        },
         mapping = cmp.mapping.preset.insert({
           -- confirm completion
-          -- ["<C-Space>"] = cmp.mapping.complete(),
           -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
           -- select item in the list, or start completion prompt if not visible
-          ['<C-k>'] = cmp.mapping(function()
+          -- TODO: remap this two given they are conflicting with tmux navigation between panes
+          ['K'] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_prev_item({ behavior = 'select' })
             else
               cmp.complete()
             end
           end),
-          ['<C-j>'] = cmp.mapping(function()
+          ['J'] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_next_item({ behavior = 'select' })
             else
