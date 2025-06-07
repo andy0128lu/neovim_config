@@ -10,6 +10,8 @@ return {
       vim.g.lsp_zero_extend_lspconfig = 0
     end,
   },
+
+  -- Ability to install language servers
   {
     "williamboman/mason.nvim",
     lazy = false,
@@ -67,14 +69,14 @@ return {
         }),
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
       })
     end,
   },
 
-  -- LSP
+  -- LSP config sets for different language servers
   {
     "neovim/nvim-lspconfig",
     cmd = { "LspInfo", "LspInstall", "LspStart" },
@@ -128,7 +130,6 @@ return {
               capabilities = capabilities
             })
           end,
-          -- lsp_zero.default_setup,
         },
       })
 
