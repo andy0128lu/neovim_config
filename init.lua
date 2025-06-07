@@ -23,21 +23,22 @@ require("lazy").setup({
     keymaps = false, -- lazyvim.config.keymaps
   }
 })
--- TODO: Make it load files in a folder automatically
-require("customise/keymaps")
-require("customise/diagnostic")
-require("customise/better-escape")
 
--- TODO: not working - load files in a folder automaticall
--- -- init.lua or another file where you want to require files from the directory
--- Lazyvim seems loading files automatically. It's worth to check out
--- https://www.lazyvim.org/configuration/general
--- local config_dir = vim.fn.stdpath('config') .. '/lua/customise/'
---
--- -- List all Lua files in the directory
--- for _, file in ipairs(vim.fn.glob(config_dir .. '*.lua', false, true)) do
---   -- Extract the filename without the extension
---   local module_name = file:match('.*/(.-)%.lua$')
---   -- Require the file
---   require('customise/' .. module_name)
--- end
+-- Load all LSP's in "lua/lsp"
+local lsp_path = vim.fn.stdpath("config") .. "/lua/lsp"
+-- Then load all LSP configs
+for _, file in ipairs(vim.fn.readdir(lsp_path)) do
+  if file:match("%.lua$") then
+    local module_name = "lsp." .. file:gsub("%.lua$", "")
+    require(module_name)
+  end
+end
+
+-- Load all configuration files under /lua/customise
+local customise_path = vim.fn.stdpath("config") .. "/lua/customise"
+for _, file in ipairs(vim.fn.readdir(customise_path)) do
+  if file:match("%.lua$") then
+    local module_name = "customise." .. file:gsub("%.lua$", "")
+    pcall(require, module_name)
+  end
+end
