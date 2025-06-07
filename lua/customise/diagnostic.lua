@@ -36,6 +36,10 @@ local function get_formatted_diagnostic(diagnostic)
 end
 
 vim.diagnostic.config({
+  virtual_lines = {
+    -- Only show virtual line diagnostics for the current cursor line
+    current_line = true,
+  },
   virtual_text = {
     --prefix = "",
     scope = "line",
@@ -43,7 +47,7 @@ vim.diagnostic.config({
     --format = get_formatted_diagnostic,
   },
   --signs = {severity = {min = vim.diagnostic.severity.WARN}},
-  underline = {severity = {min = vim.diagnostic.severity.WARN}},
+  underline = { severity = { min = vim.diagnostic.severity.WARN } },
   float = {
     border = "single",
     severity_sort = true,
