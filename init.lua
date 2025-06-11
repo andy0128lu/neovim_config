@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load modules
+-- TODO: remove this which is no need now
 require("customise/vim-options")
 require("lazy").setup({
   spec = {
