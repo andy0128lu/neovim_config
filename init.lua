@@ -1,3 +1,6 @@
+-- Load gloal settings
+require("customise/vim-options")
+
 -- Install lazy.vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -13,8 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load modules
--- TODO: remove this which is no need now
-require("customise/vim-options")
 require("lazy").setup({
   spec = {
     -- import from the /plugins directory
@@ -24,16 +25,6 @@ require("lazy").setup({
     keymaps = false, -- lazyvim.config.keymaps
   }
 })
-
--- Load all LSP's in "lua/lsp"
-local lsp_path = vim.fn.stdpath("config") .. "/lua/lsp"
--- Then load all LSP configs
-for _, file in ipairs(vim.fn.readdir(lsp_path)) do
-  if file:match("%.lua$") then
-    local module_name = "lsp." .. file:gsub("%.lua$", "")
-    require(module_name)
-  end
-end
 
 -- Load all configuration files under /lua/customise
 local customise_path = vim.fn.stdpath("config") .. "/lua/customise"
