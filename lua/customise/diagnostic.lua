@@ -63,13 +63,23 @@ vim.diagnostic.config({
   },
 })
 
--- Open diagnostic in a floating window
-vim.keymap.set(
-  "n",
-  "<leader>i",
-  ":lua vim.diagnostic.open_float(0, { focus=true, scope='line' })<CR>", -- 0: the current buffer
-  { desc = "Show diagnostic in floating window" }
-)
+-- Keymap to toggle virtual line of diagnostic 
+vim.keymap.set("n", "<leader>dv", function()
+	if vim.diagnostic.config().virtual_lines then
+		vim.diagnostic.config({ virtual_lines = false })
+	else
+		vim.diagnostic.config({ virtual_lines = { current_line = true } })
+	end
+end, {})
+
+-- TODO: is it duplicate as diagnostic hover?
+---- Open diagnostic in a floating window
+--vim.keymap.set(
+--  "n",
+--  "<leader>i",
+--  ":lua vim.diagnostic.open_float(0, { focus=true, scope='line' })<CR>", -- 0: the current buffer
+--  { desc = "Show diagnostic in floating window" }
+--)
 
 -- Kepmap to toggle diagnostic
 local diagnostics_active = true
