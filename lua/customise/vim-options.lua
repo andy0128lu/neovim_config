@@ -16,6 +16,9 @@ vim.opt.conceallevel = 2 -- for UI features of obsidian.nvim
 -- deriving colours from the user's theme, you can change highlight groups by
 vim.opt.termguicolors = true
 
+-- A comma-separated list of options for Insert mode completion ins-completion
+vim.o.completeopt = 'menu,menuone,noinsert,noselect'
+
 -- Config for Ruby
 -- Currently I use treesitter to indent my text. However when using the period
 -- nvim-treesitter will break my indentation of the current line, leading me to

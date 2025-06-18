@@ -1,4 +1,4 @@
-return {
+return { 
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
@@ -17,7 +17,6 @@ return {
     lazy = false,
     config = true,
   },
-
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
@@ -34,6 +33,10 @@ return {
       local cmp = require("cmp")
       local cmp_action = lsp_zero.cmp_action()
       cmp.setup({
+        preselect = cmp.PreselectMode.None,  -- Do not preselect anything
+        completion = {
+          completeopt = 'menu,menuone,noinsert,noselect',
+        },
         formatting = lsp_zero.cmp_format({ details = true }),
         sources = {
           { name = "copilot",  group_index = 2 },
@@ -41,26 +44,35 @@ return {
           { name = "path",     group_index = 2 },
           { name = "luasnip",  group_index = 2 },
         },
+        enabled = function()
+          local disabled = false
+          disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+          disabled = disabled or (vim.fn.reg_recording() ~= '')
+          disabled = disabled or (vim.fn.reg_executing() ~= '')
+          disabled = disabled or require('cmp.config.context').in_treesitter_capture('comment')
+          return not disabled
+        end,
         mapping = cmp.mapping.preset.insert({
           -- confirm completion
           -- Use Enter to confirm completion. select = false indicates you need to select the item before pressing Enter
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
-          -- select item in the list, or start completion prompt if not visible
-          -- TODO: remap this two given they are conflicting with tmux navigation between panes
-          ['K'] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = 'select' })
-            else
-              cmp.complete()
-            end
-          end),
-          ['J'] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = 'select' })
-            else
-              cmp.complete()
-            end
-          end),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ---- select item in the list, or start completion prompt if not visible
+          ---- TODO: remap this two given they are conflicting with tmux navigation between panes
+          --['K'] = cmp.mapping(function()
+          --  if cmp.visible() then
+          --    cmp.select_prev_item({ behavior = 'select' })
+          --  else
+          --    cmp.complete()
+          --  end
+          --end),
+          --['J'] = cmp.mapping(function()
+          --  if cmp.visible() then
+          --    cmp.select_next_item({ behavior = 'select' })
+          --  else
+          --    cmp.complete()
+          --  end
+          --end),
           -- scroll up and down the documentation window
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),
           ["<C-d>"] = cmp.mapping.scroll_docs(4),
@@ -75,7 +87,6 @@ return {
       })
     end,
   },
-
   -- LSP config sets for different language servers
   {
     "neovim/nvim-lspconfig",
