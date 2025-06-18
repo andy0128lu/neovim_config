@@ -26,47 +26,41 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- keybindings for LSP
-    vim.api.nvim_create_autocmd('LspAttach', {
-      desc = 'LSP actions',
-      callback = function(event)
-        local opts = { buffer = event.buf }
-
-        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover({border = "rounded"})<cr>', opts)
-        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-        vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-        vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-        vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-        vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-        vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-        vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        vim.keymap.set("n", 'gf', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = "formatting" })
-        vim.keymap.set('n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-        vim.keymap.set({ 'n', 'x' }, 'gf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-      end,
-    })
-
-    --- BufWritePre
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = args.buf,
-      callback = function()
-        -- Formatting on Save
-        vim.lsp.buf.format {
-          async = false,
-          id = args.data.client_id,
-          -- Never request the servers in the list for formatting
-          filter = function(client)
-            local disable_formatting = {
-              ts_ls = true,
-              ruby_lsp = true
-            }
-            return disable_formatting[client.name]
-          end
-        }
-      end,
-    })
+    local opts = { buffer = args.buf }
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover({border = "rounded"})<cr>', opts)
+    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set("n", 'gf', '<cmd>lua vim.lsp.buf.format()<cr>', { desc = "formatting" })
+    vim.keymap.set('n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set({ 'n', 'x' }, 'gf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
   end
 })
 
+-- TODO: commented out for now
+-- BufWritePre
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--  buffer = args.buf,
+--  callback = function()
+--    -- Formatting on Save
+--    vim.lsp.buf.format {
+--      async = false,
+--      id = args.data.client_id,
+--      -- Never request the servers in the list for formatting
+--      filter = function(client)
+--        local disable_formatting = {
+--          ts_ls = true,
+--          ruby_lsp = true
+--        }
+--        return disable_formatting[client.name]
+--      end
+--    }
+--  end,
+--})
 
 -- TODO: refactor to an file
 -- Quickfix list: delete items
