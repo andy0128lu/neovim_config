@@ -7,7 +7,7 @@ return {
     config = function()
       -- Set a compatiable version of NodeJS with Copilot. Node.js version must be > 20
       -- TODO: this setup is not working. The current workaround is switch to v20 before entering nvim
-      vim.g.copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v20.15.1/bin/node"
+      -- vim.g.copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v20.15.1/bin/node"
 
       require("copilot").setup({
         suggestion = { enabled = false },
