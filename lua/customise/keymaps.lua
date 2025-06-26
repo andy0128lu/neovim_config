@@ -3,6 +3,7 @@ vim.keymap.set("n", ";", ":", { desc = "Swap ; and :" })
 vim.keymap.set("n", ":", ";", { desc = "Swap ; and :" })
 vim.keymap.set("n", "<leader>hn", ":nohlsearch<CR>", { desc = "Hide highlight in search result" })
 vim.keymap.set("n", "<leader>ct", ":tabclose<CR>", { desc = "Close all windows in the current tab" })
+vim.keymap.set("n", "<leader>cb", ":tabnew | %bd | b#<CR>", { desc = "Close all buffers but this one" })
 
 --- Move selected lines up and down (Aligning with the indent for the given block, such as within brackets)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
