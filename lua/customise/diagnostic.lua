@@ -65,11 +65,13 @@ vim.diagnostic.config({
 
 -- Keymap to toggle virtual line of diagnostic 
 vim.keymap.set("n", "<leader>dv", function()
-	if vim.diagnostic.config().virtual_lines then
+  virtual_line_shown = vim.diagnostic.config().virtual_lines 
+	if virtual_line_shown then
 		vim.diagnostic.config({ virtual_lines = false })
 	else
 		vim.diagnostic.config({ virtual_lines = { current_line = true } })
 	end
+  print("Virtual line: " .. (virtual_line_shown and "Enabled" or "Disabled"))
 end, {})
 
 -- TODO: is it duplicate as diagnostic hover?
@@ -91,5 +93,6 @@ local toggle_diagnostics = function()
   else
     vim.diagnostic.hide()
   end
+  print("Diagnostic: " .. (diagnostics_active and "Enabled" or "Disabled"))
 end
 vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostic" })
