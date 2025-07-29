@@ -37,6 +37,8 @@ return {
     opts = {
       window = {
         layout = 'float',
+        width = 0.9, -- fractional width of parent, or absolute width in columns when > 1
+        height = 0.7, -- fractional height of parent, or absolute height in rows when > 1
       }
     },
     config = function(_, opts)
