@@ -9,7 +9,7 @@ local function get_formatted_diagnostic(diagnostic)
   }
 
   for k, level in pairs(levels) do
-    count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level, scope = "line" }))
+    count[k] = vim.tbl_count(vim.diagnostic.get(0, { severity = level, lnum = diagnostic.lnum }))
   end
   local errors = ""
   local warnings = ""
@@ -36,16 +36,8 @@ local function get_formatted_diagnostic(diagnostic)
 end
 
 vim.diagnostic.config({
-  virtual_lines = {
-    -- Only show virtual line diagnostics for the current cursor line
-    current_line = true,
-  },
-  virtual_text = {
-    --prefix = "",
-    scope = "line",
-    severity = { min = vim.diagnostic.severity.WARN },
-    --format = get_formatted_diagnostic,
-  },
+  virtual_lines = false,
+  virtual_text = false,
   --signs = {severity = {min = vim.diagnostic.severity.WARN}},
   underline = { severity = { min = vim.diagnostic.severity.WARN } },
   float = {
@@ -64,35 +56,46 @@ vim.diagnostic.config({
 })
 
 -- Keymap to toggle virtual line of diagnostic 
-vim.keymap.set("n", "<leader>dv", function()
-  virtual_line_shown = vim.diagnostic.config().virtual_lines 
-	if virtual_line_shown then
-		vim.diagnostic.config({ virtual_lines = false })
-	else
-		vim.diagnostic.config({ virtual_lines = { current_line = true } })
-	end
-  print("Virtual line: " .. (virtual_line_shown and "Enabled" or "Disabled"))
-end, {})
+vim.keymap.set("n", "<leader>dx", function()
+  local current = vim.diagnostic.config().virtual_text
+  local is_shown = current and true or false
 
--- TODO: is it duplicate as diagnostic hover?
----- Open diagnostic in a floating window
---vim.keymap.set(
---  "n",
---  "<leader>i",
---  ":lua vim.diagnostic.open_float(0, { focus=true, scope='line' })<CR>", -- 0: the current buffer
---  { desc = "Show diagnostic in floating window" }
---)
+  local new_config
+  if is_shown then
+    new_config = { virtual_text = false }
+  else
+    new_config = {
+      virtual_text = {
+        scope = "line", -- show one virtual text per line instead of per diagnostic. Not necessary if it call a custom formatter below
+        prefix = "",  -- remove the default ■ symbol
+        severity = { min = vim.diagnostic.severity.WARN },
+        format = get_formatted_diagnostic
+      }
+    }
+  end
+  vim.diagnostic.config(vim.tbl_extend("force", vim.diagnostic.config(), new_config))
+  print("Virtual text: " .. (is_shown and "Enabled" or "Disabled"))
+end, { desc = "Toggle diagnostic virtual text" })
+
+-- Keymap to toggle virtual line of diagnostic 
+vim.keymap.set("n", "<leader>dv", function()
+  local current = vim.diagnostic.config().virtual_lines
+  local is_shown = current and true or false  -- ensure boolean
+
+	if is_shown then
+		new_config = { virtual_lines = false }
+	else
+    -- Only show virtual line diagnostics for the current cursor line
+		new_config = { virtual_lines = { current_line = true } }
+	end
+  vim.diagnostic.config(vim.tbl_extend("force", vim.diagnostic.config(), new_config))
+  print("Virtual line: " .. (is_shown and "Enabled" or "Disabled"))
+end, { desc = "Toggle diagnostic virtual line" })
 
 -- Kepmap to toggle diagnostic
-local diagnostics_active = true
-
 local toggle_diagnostics = function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-  print("Diagnostic: " .. (diagnostics_active and "Enabled" or "Disabled"))
+  toggle = not vim.diagnostic.is_enabled()
+  print("Diagnostic: " .. (toggle and "Enabled" or "Disabled"))
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end
 vim.keymap.set("n", "<leader>dt", toggle_diagnostics, { desc = "Toggle diagnostic" })
