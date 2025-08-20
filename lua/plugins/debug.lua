@@ -76,14 +76,14 @@ return {
       dapui.close()
     end
 
-    vim.keymap.set("n", "<Leader>dc", dap.continue, {})
-    vim.keymap.set("n", "<Leader>dv", dap.step_over, {})
-    vim.keymap.set("n", "<Leader>di", dap.step_into, {})
-    vim.keymap.set("n", "<Leader>do", dap.step_out, {})
-    vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
-    vim.keymap.set("n", "<Leader>dB", function()
+    vim.keymap.set("n", "<Leader>bc", dap.continue, {})
+    vim.keymap.set("n", "<Leader>bv", dap.step_over, {})
+    vim.keymap.set("n", "<Leader>bi", dap.step_into, {})
+    vim.keymap.set("n", "<Leader>bo", dap.step_out, {})
+    vim.keymap.set("n", "<Leader>bb", dap.toggle_breakpoint, {})
+    vim.keymap.set("n", "<Leader>bB", function()
       require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
     end, { desc = "conditional breakpoint" })
-    vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "Terminate" })
+    vim.keymap.set("n", "<leader>bt", dap.terminate, { desc = "Terminate" })
   end,
 }
