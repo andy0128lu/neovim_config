@@ -16,19 +16,15 @@ local function get_formatted_diagnostic(diagnostic)
   local hints = ""
   local info = ""
   if count["errors"] ~= 0 then
-    --errors = " " .. vim.fn.sign_getdefined("DiagnosticsSignError") .. " " .. count["errors"]
     errors = " " .. " " .. count["errors"]
   end
   if count["warnings"] ~= 0 then
-    --warnings = " " .. vim.fn.sign_getdefined("DiagnosticsSignWarn") .. " " .. count["warnings"]
     warnings = " " .. " " .. count["warnings"]
   end
   if count["hints"] ~= 0 then
-    -- hints = " " .. vim.fn.sign_getdefined("DiagnosticsSignHint") .. " " .. count["hints"]
     hints = " " .. " " .. count["hints"]
   end
   if count["info"] ~= 0 then
-    --    info = " " .. vim.fn.sign_getdefined("DiagnosticsSignInfo") .. "  " .. count["info"]
     info = " " .. " " .. count["info"]
   end
 
@@ -55,7 +51,7 @@ vim.diagnostic.config({
   },
 })
 
--- Keymap to toggle virtual line of diagnostic 
+-- Keymap to toggle virtual text of diagnostic 
 vim.keymap.set("n", "<leader>dx", function()
   local current = vim.diagnostic.config().virtual_text
   local is_shown = current and true or false
