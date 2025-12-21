@@ -60,11 +60,11 @@ return {
     },
     build = "make tiktoken",                          -- Only on MacOS or Linux
     keys = {
-      { mode = { "n", "v" }, "<leader>cc", ":CopilotChatToggle<cr>",  desc = "Toggle Copilot Chat" },
-      { mode = { "v" }, "<leader>ce", ":CopilotChatExplain<cr>",  desc = "Explain code" },
-      { mode = { "n", "v" }, "<leader>cr", ":CopilotChatReview<cr>", desc = "Code review" },
-      { mode = { "n", "v" }, "<leader>co", ":CopilotChatOptimize<cr>", desc = "Optimise code" },
-      { mode = { "n", "v" }, "<leader>ct", ":CopilotChatTests<cr>", desc = "Generate tests" },
+      { mode = { "n", "v" }, "<leader>cc", ":CopilotChatToggle<cr>",   desc = "Toggle Copilot Chat" },
+      { mode = { "v" },      "<leader>ce", ":CopilotChatExplain<cr>",  desc = "Explain code" },
+      { mode = { "n", "v" }, "<leader>cr", ":CopilotChatReview<cr>",   desc = "Code review" },
+      { mode = { "v" },      "<leader>co", ":CopilotChatOptimize<cr>", desc = "Optimise code" },
+      { mode = { "n", "v" }, "<leader>ct", ":CopilotChatTests<cr>",    desc = "Generate tests" },
     },
     opts = {
       highlight_selection = true,
@@ -94,12 +94,16 @@ return {
         },
       },
       prompts = {
-        Default = {
-          prompt = '#files:full\n> @copilot\n',
+        Rename = {
+          prompt = '#files:full\n> @copilot\nPlease rename the variable correctly in given selection based on context',
           system_prompt =
-          'You are an expert in software development, and follow best practice for design patterns and archietectures',
+            "You are an expert in software development, and follow best practice for design patterns and architectures",
           mapping = '<leader>cd',
           description = 'Default prompt',
+          selection = function(source)
+            local select = require('CopilotChat.select')
+            return select.visual(source)
+          end
         },
         NiceInstructions = {
           prompt = 'Explain how it works.',
