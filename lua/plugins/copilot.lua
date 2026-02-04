@@ -69,7 +69,11 @@ return {
     opts = {
       highlight_selection = true,
       auto_insert_mode = false,
-      sticky = '#files:full\n> @copilot\n',
+      chat_autocomplete = true,
+      sticky = {
+        '#files:full',
+        '@copilot',
+      },
       window = {
         layout = 'vertical', -- 'vertical' | 'horizontal'
         width = 0.5,         -- fractional width of parent, or absolute width in columns when > 1
@@ -95,10 +99,10 @@ return {
       },
       prompts = {
         Rename = {
-          prompt = '#files:full\n> @copilot\nPlease rename the variable correctly in given selection based on context',
+          prompt = 'Please rename the variable correctly in given selection based on context',
           system_prompt =
             "You are an expert in software development, and follow best practice for design patterns and architectures",
-          mapping = '<leader>cd',
+          mapping = '<leader>ad',
           description = 'Default prompt',
           selection = function(source)
             local select = require('CopilotChat.select')
