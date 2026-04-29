@@ -45,6 +45,10 @@ return {
 		end, { desc = "Search harpoon file in telescope window" })
 		vim.keymap.set("n", "<leader>ha", function()
 			harpoon:list():add()
+      local bufname = vim.api.nvim_buf_get_name(0)
+      local filename = vim.fn.fnamemodify(bufname, ':t')
+
+      print("Impaled: " .. filename)
 		end, {})
 		vim.keymap.set("n", "<leader>hl", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
