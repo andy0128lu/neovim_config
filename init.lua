@@ -27,10 +27,18 @@ require("lazy").setup({
 })
 
 -- Load all configuration files under /lua/customise
+local function r(module)
+    local status_ok, loaded_module = pcall(require, module)
+    if not status_ok then
+        vim.notify('Error loading ' .. module, vim.log.levels.ERROR)
+        vim.notify(loaded_module, vim.log.levels.ERROR)
+    end
+    return loaded_module
+end
 local customise_path = vim.fn.stdpath("config") .. "/lua/customise"
 for _, file in ipairs(vim.fn.readdir(customise_path)) do
   if file:match("%.lua$") then
-    local module_name = "customise." .. file:gsub("%.lua$", "")
-    pcall(require, module_name)
+    local module = "customise." .. file:gsub("%.lua$", "")
+    r(module)
   end
 end
