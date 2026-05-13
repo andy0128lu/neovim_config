@@ -96,6 +96,7 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason-lspconfig.nvim" },
       { "Hoffs/omnisharp-extended-lsp.nvim" },
+      { "b0o/schemastore.nvim" }
     },
     config = function()
       -- This is where all the LSP shenanigans will live
@@ -196,6 +197,16 @@ return {
             -- determining which version to use for project loading.
             IncludePrereleases = true,
           },
+          yaml = {
+           schemaStore = {
+             -- You must disable built-in schemaStore support if you want to use
+             -- this plugin and its advanced options like `ignore`.
+             enable = false,
+             -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+             url = "",
+           },
+           schemas = require('schemastore').yaml.schemas(),
+    },
         },
       })
     end,
