@@ -15,6 +15,10 @@ vim.keymap.set("n", "<C-t>", ":terminal<CR>", { desc = "Open terminal mode" })
 vim.keymap.set("n", "<leader>gl", ":EslintFixAll<CR>", { desc = "Eslint fix all" })
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "Go to next diagnostic line" })
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic line" })
+vim.keymap.set("n", "<leader>st", ":ToggleYamlSchema<CR>", { desc = "Toggle OpenAPI schema validation in YAML file" })
+
+-- keymap for formatting JSON file
+vim.keymap.set("n", "<leader>fj", ":%!jq .", { desc = "Format JSON with jq command" })
 
 -- Handlers
 vim.api.nvim_create_autocmd("LspAttach", {
