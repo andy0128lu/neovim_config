@@ -36,10 +36,9 @@ end, { desc = "Open AI pane" })
 vim.keymap.set("n", "<leader>cn", function()
   local file = vim.fn.expand("%")
   local tmux_win = vim.trim(vim.fn.system("tmux display-message -p '#{window_id}'"))
-  vim.fn.system(string.format(
-    'tmux send-keys -t %s %q Enter',
-    vim.g["ai_pane_id_" .. tmux_win], file
-  ))
+  local pane_id = vim.g["ai_pane_id_" .. tmux_win]
+  vim.fn.system(string.format('tmux send-keys -t %s %q Enter', pane_id, file))
+  vim.fn.system(string.format('tmux select-pane -t %s', pane_id))
 end)
 
 
