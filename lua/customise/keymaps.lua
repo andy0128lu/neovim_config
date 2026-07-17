@@ -73,6 +73,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end
 })
 
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  -- Close the AI pane (opened via <leader>ai) when Neovim exits,
+  -- keyed by tmux window so multiple Neovim instances don't interfere.
+  callback = function()
+    local tmux_win = vim.trim(vim.fn.system("tmux display-message -p '#{window_id}'"))
+    local pane_id = vim.g["ai_pane_id_" .. tmux_win]
+    if pane_id and pane_id ~= "" then
+      vim.fn.system(string.format("tmux kill-pane -t %s", pane_id))
+    end
+  end,
+})
+
 -- TODO: commented out for now
 -- BufWritePre
 --vim.api.nvim_create_autocmd("BufWritePre", {
