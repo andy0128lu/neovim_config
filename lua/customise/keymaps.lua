@@ -34,11 +34,16 @@ end, { desc = "Open AI pane" })
 
 -- keymap for copying the path of the active buffer
 vim.keymap.set("n", "<leader>cn", function()
-  local file = vim.fn.expand("%")
+  local file = vim.fn.expand("%:p") .. ":" .. vim.fn.line(".")
   local tmux_win = vim.trim(vim.fn.system("tmux display-message -p '#{window_id}'"))
   local pane_id = vim.g["ai_pane_id_" .. tmux_win]
-  vim.fn.system(string.format('tmux send-keys -t %s %q Enter', pane_id, file))
-  vim.fn.system(string.format('tmux select-pane -t %s', pane_id))
+  if not pane_id then
+    vim.notify("No AI pane ID found. Reopen it from Neovim", vim.log.levels.WARN)
+    return
+  end
+  local cmd = string.format("tmux send-keys -t %s %s Enter", pane_id, vim.fn.shellescape(file))
+  vim.fn.system(cmd)
+  vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
 end)
 
 
