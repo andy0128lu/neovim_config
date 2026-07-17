@@ -20,6 +20,29 @@ vim.keymap.set("n", "<leader>st", ":ToggleYamlSchema<CR>", { desc = "Toggle Open
 -- keymap for formatting JSON file
 vim.keymap.set("n", "<leader>fj", ":%!jq .", { desc = "Format JSON with jq command" })
 
+-- keymap for opening AI in a pane on the left side
+vim.keymap.set("n", "<leader>ai", function()
+  local cwd = vim.fn.getcwd()
+  local ai_cmd = vim.fn.getenv("AI_CMD") or "copilot"
+  -- -P -F prints the new pane's ID (e.g. %3), stored keyed by tmux window to avoid conflicts
+  local tmux_win = vim.trim(vim.fn.system("tmux display-message -p '#{window_id}'"))
+  local pane_id = vim.trim(vim.fn.system(
+    string.format("tmux split-window -h -b -c %q -P -F '#{pane_id}' '%s'", cwd, ai_cmd)
+  ))
+  vim.g["ai_pane_id_" .. tmux_win] = pane_id
+end, { desc = "Open AI pane" })
+
+-- keymap for copying the path of the active buffer
+vim.keymap.set("n", "<leader>cn", function()
+  local file = vim.fn.expand("%")
+  local tmux_win = vim.trim(vim.fn.system("tmux display-message -p '#{window_id}'"))
+  vim.fn.system(string.format(
+    'tmux send-keys -t %s %q Enter',
+    vim.g["ai_pane_id_" .. tmux_win], file
+  ))
+end)
+
+
 -- Handlers
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
