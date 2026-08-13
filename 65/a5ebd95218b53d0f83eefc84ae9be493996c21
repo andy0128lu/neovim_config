@@ -1,0 +1,18 @@
+lsp/ruby.lua
+  h_fd46c41b44d411 1-21
+lua/lsp/lua.lua
+  h_fd46c41b44d411 1-33
+lua/lsp/ruby.lua
+  h_fd46c41b44d411 1-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "65a5ebd95218b53d0f83eefc84ae9be493996c21",
+  "prompts": {},
+  "humans": {
+    "h_fd46c41b44d411": {
+      "author": "andy0128lu <andy0128.lu@gmail.com>"
+    }
+  }
+}
