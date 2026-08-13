@@ -1,0 +1,14 @@
+lua/plugins/treesitter.lua
+  h_fd46c41b44d411 9-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1d77c8627d4fd138958c01897d8dc8a9c9897611",
+  "prompts": {},
+  "humans": {
+    "h_fd46c41b44d411": {
+      "author": "andy0128lu <andy0128.lu@gmail.com>"
+    }
+  }
+}
