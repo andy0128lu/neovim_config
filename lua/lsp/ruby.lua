@@ -1,0 +1,37 @@
+-- -- Solargraph LSP
+--vim.lsp.config.solargraph = {
+--  -- Command and arguments to start the server.
+--  cmd = { "solargraph", "stdio" },
+--  -- Filetypes to automatically attach to.
+--  filetypes = { 'ruby' },
+--  -- Sets the "root directory" to the parent directory of the file in the
+--  -- current buffer that contains either a ".luarc.json" or a
+--  -- ".luarc.jsonc" file. Files that share a root directory will reuse
+--  -- the connection to the same LSP server.
+--  -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+--  root_markers = { "Gemfile", ".git" },
+--  -- Specific settings to send to the server. The schema for this is
+--  -- defined by the server. For example the schema for lua-language-server
+--  -- can be found here https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
+--  settings = {
+--    solargraph = {
+--      diagnostics = true
+--    }
+--  },
+--  init_options = { formatting = true },
+--}
+--
+--vim.lsp.enable("solargraph")
+
+-- ruby-lsp LSP
+--vim.lsp.config["ruby-lsp"] = {
+--  cmd = { 'ruby-lsp' },
+--  filetypes = { 'ruby', 'eruby' },
+--  root_markers = { 'Gemfile', '.git' },
+--  init_options = {
+--    --formatter = 'auto', -- auto accept the suggestions from LSP when saving
+--    formatter = true,
+--  },
+--}
+--
+--vim.lsp.enable("ruby-lsp");
